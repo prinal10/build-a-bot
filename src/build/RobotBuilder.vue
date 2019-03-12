@@ -2,7 +2,9 @@
   <div class="content">
     <button class="add-to-cart" @click="addToCart()">Add to Cart</button>
     <div class="top-row">
-      <div class="top part">
+      <!--      <div class="top part" :style="headBorderStyle">
+              <div class="top part" :class="{'sale-border' : selectedRobot.head.onSale}">-->
+      <div :class="[salesBorderClass, 'top', 'part']">
         <div class="robot-name">
           {{selectedRobot.head.title}}
           <span v-if="selectedRobot.head.onSale" class="sale">Sale!!</span>
@@ -70,7 +72,11 @@
 
   export default {
     name: 'RobotBuilder',
+    created() {
+      console.log('component created !');
+    },
     data() {
+      console.log('data created');
       return {
         availableParts,
         selectedHeadIndex: 0,
@@ -82,6 +88,13 @@
       };
     },
     computed: {
+      salesBorderClass() {
+        console.log('computed created');
+        return this.selectedRobot.head.onSale ? 'sale-border' : '';
+      },
+      headBorderStyle() {
+        return { border: this.selectedRobot.head.onSale ? '3px solid red' : '3px solid #aaa' };
+      },
       selectedRobot() {
         return {
           head: availableParts.heads[this.selectedHeadIndex],
@@ -94,6 +107,7 @@
     },
     methods: {
       addToCart() {
+        console.log('methods created');
         let robot = this.selectedRobot;
         let cost = robot.head.cost +
           robot.leftArm.cost +
