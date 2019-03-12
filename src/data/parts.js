@@ -55,7 +55,7 @@ const parts = {
       title: 'Articulated',
       src: images('./arm-articulated-claw.png'),
       type: 'arms',
-      cost: 275
+      cost: 275.0
     },
     {
       id: 2,
@@ -63,7 +63,7 @@ const parts = {
       title: 'Two Clawed',
       src: images('./arm-dual-claw.png'),
       type: 'arms',
-      cost: 285
+      cost: 285.0
     },
     {
       id: 3,
@@ -79,7 +79,7 @@ const parts = {
       title: 'Propeller',
       src: images('./arm-propeller.png'),
       type: 'arms',
-      cost: 230,
+      cost: 230.0,
       onSale: true
     },
     {
@@ -88,7 +88,7 @@ const parts = {
       title: 'Stubby Claw',
       src: images('./arm-stubby-claw.png'),
       type: 'arms',
-      cost: 125
+      cost: 125.0
     }
   ],
   torsos: [
@@ -98,7 +98,7 @@ const parts = {
       title: 'Flexible Gauged',
       src: images('./torso-flexible-gauged.png'),
       type: 'torsos',
-      cost: 1575
+      cost: 1575.0
     },
     {
       id: 2,
@@ -106,7 +106,7 @@ const parts = {
       title: 'Gauged',
       src: images('./torso-gauged.png'),
       type: 'torsos',
-      cost: 1385
+      cost: 1385.0
     },
     {
       id: 2,
@@ -114,7 +114,7 @@ const parts = {
       title: 'Gauged',
       src: images('./torso-pouch.png'),
       type: 'torsos',
-      cost: 785,
+      cost: 785.0,
       onSale: true
     }
   ],
@@ -125,7 +125,7 @@ const parts = {
       title: 'Double Wheeled',
       src: images('./base-double-wheel.png'),
       type: 'bases',
-      cost: 895
+      cost: 895.0
     },
     {
       id: 2,
