@@ -1,19 +1,21 @@
 <template>
   <div class="content">
     <div class="preview">
-      <div class="preview-content">
-        <div class="top-row">
-          <img :src="selectedRobot.head.src"/>
+      <CollapsibleSection>
+        <div class="preview-content">
+          <div class="top-row">
+            <img :src="selectedRobot.head.src"/>
+          </div>
+          <div class="middle-row">
+            <img :src="selectedRobot.leftArm.src" class="rotate-left"/>
+            <img :src="selectedRobot.torso.src"/>
+            <img :src="selectedRobot.rightArm.src" class="rotate-right"/>
+          </div>
+          <div class="bottom-row">
+            <img :src="selectedRobot.base.src"/>
+          </div>
         </div>
-        <div class="middle-row">
-          <img :src="selectedRobot.leftArm.src" class="rotate-left"/>
-          <img :src="selectedRobot.torso.src"/>
-          <img :src="selectedRobot.rightArm.src" class="rotate-right"/>
-        </div>
-        <div class="bottom-row">
-          <img :src="selectedRobot.base.src"/>
-        </div>
-      </div>
+      </CollapsibleSection>
       <button class="add-to-cart" @click="addToCart()">Add to Cart</button>
     </div>
     <div class="top-row">
@@ -66,10 +68,14 @@
   import availableParts from '../data/parts';
   import createdHookMixin from './created-hook-mixin';
   import PartSelector from './PartSelector';
+  import CollapsibleSection from '../shared/CollapsibleSection';
 
   export default {
     name: 'RobotBuilder',
-    components: { PartSelector },
+    components: {
+      PartSelector,
+      CollapsibleSection
+    },
     data() {
       console.log('data created');
       return {
@@ -253,6 +259,7 @@
   .sale-border {
     border: 3px solid red;
   }
+
   .preview {
     position: absolute;
     top: -20px;
@@ -261,16 +268,20 @@
     height: 210px;
     padding: 5px;
   }
+
   .preview-content {
     border: 1px solid #999;
   }
+
   .preview img {
     width: 50px;
     height: 50px;
   }
+
   .rotate-right {
     transform: rotate(90deg);
   }
+
   .rotate-left {
     transform: rotate(-90deg);
   }
